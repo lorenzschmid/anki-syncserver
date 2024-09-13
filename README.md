@@ -5,7 +5,13 @@ This docker container simply wraps the official minimal sync server based on Pyt
 
 ## Configuration
 
-The docker container uses the same environmental variable as described in the [official documentation](https://docs.ankiweb.net/sync-server.html). Some meaningful defaults are set. One might want to change the following environmental variables:
+The docker container uses the same environmental variable as described in the [official documentation](https://docs.ankiweb.net/sync-server.html). For more information, please consult it directly. The following environmental variables are bound to the container's setup and therefore, should not be changed:
+
+- `SYNC_BASE`
+- `SYNC_HOST`
+- `SYNC_PORT`
+
+At least the following environmental variables has to be set outside of the container:
 
 - `SYNC_USER1`: The username and password for the first user in the format `user:password`.
 
@@ -47,6 +53,11 @@ services:
       - "./data:/data"
     restart: unless-stopped
 ```
+
+
+## Updating the Docker Container
+
+Upon each restart, the docker container verifies that it runs with the most recent version of the official sync server and updates automatically if a new version is available. The docker image itself likely does not need an update.
 
 
 ## Building the Docker Image Locally
