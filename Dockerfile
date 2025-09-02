@@ -21,6 +21,11 @@ RUN mkdir -p /data
 # Expose the port the sync server runs on
 EXPOSE 8080
 
+# Add health check
+ARG SYNC_PORT=8080
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD wget -qO- http://127.0.0.1:${SYNC_PORT}/health || exit 1
+
 # Use PUID and PGID if set, otherwise fallback to default user and group
 ARG PUID=1000
 ARG PGID=1000
