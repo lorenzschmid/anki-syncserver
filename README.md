@@ -1,3 +1,10 @@
+This repository has been archived. Please use the official Docker container outlined in the [documentation](https://github.com/ankitects/anki/tree/main/docs/syncserver) and provided here
+
+- [DockerHub: `jeankhawand/anki-sync-server`](https://hub.docker.com/r/jeankhawand/anki-sync-server)
+
+
+----
+
 # Anki Sync Server Docker Container
 
 This docker container simply wraps the official minimal sync server based on Python. More information can be found in the [official documentation](https://docs.ankiweb.net/sync-server.html).
